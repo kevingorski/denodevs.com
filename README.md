@@ -8,7 +8,7 @@ to work with Deno.
 ### Dependencies
 
 You may install these manually or with
-[tea developer environment setup](https://docs.tea.xyz/using-dev/dev) if
+[pkgx developer environment setup](https://docs.pkgx.sh/using-dev/dev) if
 desired.
 
 - [Deno](https://deno.com/manual/getting_started/installation)
