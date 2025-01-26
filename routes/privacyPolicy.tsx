@@ -4,7 +4,7 @@ import { SITE_NAME } from "@/utils/constants.ts";
 
 const lastUpdated = new Date(2023, 8, 25);
 const md = await Deno.readTextFile("static/privacyPolicy.md");
-const markup = marked.parse(md);
+const markup = await marked.parse(md);
 
 export default defineRoute(() => {
   return (
