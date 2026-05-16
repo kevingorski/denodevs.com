@@ -42,6 +42,12 @@
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },
   "nodeModulesDir": "none",
+  "deploy": {
+    "project": "denodevs",
+    "entrypoint": "./main.ts",
+    "include": ["./"],
+    "exclude": ["cov/", "_fresh/", ".github/"]
+  },
   "pkgx": "deno.land^2.1.1 github.com/evilmartians/lefthook^1.5.0",
   "tasks": {
     "db:dump": "deno run --allow-read --allow-env tools/dump_kv.ts",
