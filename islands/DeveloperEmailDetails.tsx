@@ -101,7 +101,7 @@ export default function DeveloperEmailDetails(
                 ? <span title="Verified">✅</span>
                 : <span title="Check your email to verify">📬</span>}
             </label>
-            <button onClick={handleEditClick}>
+            <button type="button" onClick={handleEditClick}>
               Edit
             </button>
           </div>

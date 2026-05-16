@@ -20,6 +20,11 @@ export default defineRoute(() => {
           })}
         </time>
       </p>
+      {
+        /* Markup comes from a trusted, repo-local markdown file rendered
+          at module load — not from user input. */
+      }
+      {/* deno-lint-ignore react-no-danger */}
       <div
         dangerouslySetInnerHTML={{ __html: markup }}
       />

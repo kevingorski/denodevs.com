@@ -31,6 +31,11 @@ export default function EmailTemplatesPage(props: PageProps<Props>) {
               <li>To: {sample.message.to}</li>
               <li>Subject: {sample.message.subject}</li>
             </ul>
+            {
+              /* Admin-only preview of email templates rendered by our own
+                Resend helper — no user-controlled HTML. */
+            }
+            {/* deno-lint-ignore react-no-danger */}
             <div dangerouslySetInnerHTML={innerHtml} />
           </>
         );
