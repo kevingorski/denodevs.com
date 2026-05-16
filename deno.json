@@ -11,7 +11,9 @@
     "jsxImportSource": "preact"
   },
   "exclude": ["cov/", "**/_fresh/*"],
-  "fmt": { "exclude": ["static/styles.gen.css", "styles/open-props"] },
+  "fmt": {
+    "exclude": ["static/styles.gen.css", "static/*.svg", "styles/open-props"]
+  },
   "imports": {
     "@/": "./",
     "$gfm": "https://deno.land/x/gfm@0.2.4/mod.ts",
