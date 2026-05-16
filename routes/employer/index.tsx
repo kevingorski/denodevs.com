@@ -1,11 +1,13 @@
 import { EmployerState } from "@/routes/employer/_middleware.ts";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import SignOutLink from "@/components/SignOutLink.tsx";
 import { UserType } from "@/types/UserType.ts";
 
 export const handler: Handlers<EmployerState, EmployerState> = {
-  GET(_, ctx) {
-    return ctx.render(ctx.state);
+  GET(ctx) {
+    return page(ctx.state);
   },
 };
 

@@ -1,4 +1,5 @@
-import type { Handlers } from "$fresh/server.ts";
+import type { Handlers } from "fresh/compat";
+import { page } from "fresh";
 import { State } from "@/routes/_middleware.ts";
 import {
   KEVINS_EMAIL_ADDRESS,
@@ -16,8 +17,8 @@ const profileImageBlurHash =
   "oQJQ.jX-L1r@=|s;~nIo%LRjWBoL55RP#mW=S2bbtRt7b0t7agt6ozRjxFWoI:xat6f6RQj?WVWX";
 
 export const handler: Handlers<State, State> = {
-  GET(_, ctx) {
-    return ctx.render(ctx.state);
+  GET(ctx) {
+    return page(ctx.state);
   },
 };
 

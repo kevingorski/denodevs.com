@@ -1,6 +1,7 @@
-import type { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import type { AccountState } from "./_middleware.ts";
-import { useCSP } from "$fresh/src/runtime/csp.ts";
 import {
   createCsrfToken,
   getGitHubProfileByDeveloper,
@@ -12,7 +13,6 @@ import {
 import { DeveloperStatus } from "@/types/DeveloperStatus.ts";
 import SignOutLink from "@/components/SignOutLink.tsx";
 import { UserType } from "@/types/UserType.ts";
-import denoDevsCsp from "@/utils/csp.ts";
 import { SITE_NAME } from "@/utils/constants.ts";
 import {
   ProtectedForm,
@@ -26,7 +26,7 @@ interface Props extends AccountState, ProtectedForm {
 }
 
 export const handler: Handlers<Props, AccountState> = {
-  async GET(_req, ctx) {
+  async GET(ctx) {
     const csrfToken = await createCsrfToken();
     ctx.state.title = "Account";
 
@@ -38,7 +38,7 @@ export const handler: Handlers<Props, AccountState> = {
       developerId,
     );
 
-    return ctx.render({
+    return page({
       ...ctx.state,
       csrfToken,
       gitHubProfile,
@@ -46,8 +46,8 @@ export const handler: Handlers<Props, AccountState> = {
     });
   },
 
-  async POST(req, ctx) {
-    const form = await readPostDataAndValidateCsrfToken(req);
+  async POST(ctx) {
+    const form = await readPostDataAndValidateCsrfToken(ctx.req);
     const developer = ctx.state.developer;
     const fullNameEntryValue = form.get("fullName");
     const locationEntryValue = form.get("location");
@@ -100,8 +100,6 @@ export const handler: Handlers<Props, AccountState> = {
 };
 
 export default function AccountPage(_props: PageProps<Props>) {
-  useCSP(denoDevsCsp);
-
   return (
     <main>
       <h1>Welcome to your {SITE_NAME} profile!</h1>
@@ -110,7 +108,3 @@ export default function AccountPage(_props: PageProps<Props>) {
     </main>
   );
 }
-
-export const config: RouteConfig = {
-  csp: true,
-};

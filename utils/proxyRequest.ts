@@ -1,4 +1,4 @@
-import { FreshContext } from "$fresh/server.ts";
+import type { FreshContext } from "fresh";
 
 const excludedIncomingHeaders = [
   "accept-encoding",
@@ -22,7 +22,7 @@ export default async function proxyRequest(
   const originalForwardedFor = originalHeaders.get("x-forwarded-for");
   const newForwardedFor = `${
     originalForwardedFor !== null ? originalForwardedFor + "," : ""
-  }${ctx.remoteAddr.hostname}`;
+  }${(ctx.info.remoteAddr as Deno.NetAddr).hostname}`;
 
   const headers = new Headers();
   headers.set("host", proxiedUrl.hostname);

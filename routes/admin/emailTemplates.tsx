@@ -1,4 +1,6 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import { AdminState } from "@/utils/adminAccessHandler.ts";
 import { renderTemplateSamples, TemplateSample } from "@/utils/email.ts";
 
@@ -7,8 +9,8 @@ interface Props extends AdminState {
 }
 
 export const handler: Handlers<Props, AdminState> = {
-  GET(_, ctx) {
-    return ctx.render({
+  GET(ctx) {
+    return page({
       ...ctx.state,
       templateSamples: renderTemplateSamples(),
     });

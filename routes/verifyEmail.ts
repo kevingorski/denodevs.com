@@ -1,4 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
+import type { Handlers } from "fresh/compat";
 import {
   deleteSignInToken,
   getDeveloper,
@@ -9,7 +9,8 @@ import { SIGN_IN_TOKEN_LIFETIME_MS } from "@/utils/constants.ts";
 import { redirect, redirectToDeveloperSignIn } from "@/utils/redirect.ts";
 
 export const handler: Handlers = {
-  async GET(req: Request, _) {
+  async GET(ctx) {
+    const { req } = ctx;
     const requestUrl = new URL(req.url);
     const token = requestUrl.searchParams.get("token");
     if (!token) {

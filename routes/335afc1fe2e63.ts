@@ -1,14 +1,15 @@
 /* Reverse proxy for Clicky beacon to enable analytics */
-import { FreshContext, Handlers } from "$fresh/server.ts";
+import type { FreshContext } from "fresh";
+import type { Handlers } from "fresh/compat";
 import proxyRequest from "@/utils/proxyRequest.ts";
 
 const proxiedUrl = "https://in.getclicky.com/in.php";
 
-function proxyClickyRequest(req: Request, ctx: FreshContext) {
-  const requestedUrl = new URL(req.url);
+function proxyClickyRequest(ctx: FreshContext) {
+  const requestedUrl = new URL(ctx.req.url);
   const withQueryString = new URL(proxiedUrl);
   withQueryString.search = requestedUrl.search;
-  return proxyRequest(withQueryString, req, ctx);
+  return proxyRequest(withQueryString, ctx.req, ctx);
 }
 
 export const handler: Handlers = {

@@ -1,4 +1,5 @@
-import { defineRoute } from "$fresh/server.ts";
+import { defineRoute } from "fresh/compat";
+import { HttpError } from "fresh";
 import { signIn } from "kv_oauth";
 import {
   gitHubOAuth2Client,
@@ -7,8 +8,8 @@ import {
 import { OAuthProvider } from "@/types/OAuthProvider.ts";
 
 export default defineRoute(
-  async (req, ctx) => {
-    const requestUrl = new URL(req.url);
+  async (ctx) => {
+    const requestUrl = new URL(ctx.req.url);
     const provider = requestUrl.searchParams.get("provider");
     let client;
 
@@ -20,9 +21,9 @@ export default defineRoute(
         client = googleOAuth2Client;
         break;
       default:
-        return ctx.renderNotFound();
+        throw new HttpError(404);
     }
 
-    return await signIn(req, client);
+    return await signIn(ctx.req, client);
   },
 );

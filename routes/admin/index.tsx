@@ -1,4 +1,6 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import { AdminState } from "@/utils/adminAccessHandler.ts";
 import { AllTimeMetric, getManyMetricsForAllTime } from "@/utils/db.ts";
 
@@ -8,12 +10,12 @@ interface Props extends AdminState {
 }
 
 export const handler: Handlers<Props, AdminState> = {
-  async GET(_, ctx) {
+  async GET(ctx) {
     const [developersCount, employersCount] = await getManyMetricsForAllTime([
       AllTimeMetric.DevelopersCreatedCount,
       AllTimeMetric.EmployersCreatedCount,
     ]);
-    return ctx.render({ ...ctx.state, developersCount, employersCount });
+    return page({ ...ctx.state, developersCount, employersCount });
   },
 };
 

@@ -1,4 +1,4 @@
-import { defineRoute } from "$fresh/server.ts";
+import { defineRoute } from "fresh/compat";
 import { marked } from "marked";
 import { SITE_NAME } from "@/utils/constants.ts";
 

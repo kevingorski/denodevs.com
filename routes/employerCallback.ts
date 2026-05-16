@@ -1,4 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
+import type { Handlers } from "fresh/compat";
 import { State } from "@/routes/_middleware.ts";
 import {
   deleteRedirectUrlCookie,
@@ -23,7 +23,8 @@ import { addEmployerEmailToResponse } from "@/utils/signInHelp.ts";
 import { USE_SECURE_COOKIES } from "@/utils/config.ts";
 
 export const handler: Handlers<State, State> = {
-  async GET(req) {
+  async GET(ctx) {
+    const { req } = ctx;
     const signInResponse = redirectToEmployerSignIn();
     const requestUrl = new URL(req.url);
     const token = requestUrl.searchParams.get("token");

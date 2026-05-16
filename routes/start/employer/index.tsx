@@ -1,4 +1,6 @@
-import type { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import { State } from "@/routes/_middleware.ts";
 import { redirect } from "@/utils/redirect.ts";
 import {
@@ -18,13 +20,13 @@ import { SITE_NAME } from "@/utils/constants.ts";
 interface Props extends State, ProtectedForm {}
 
 export const handler: Handlers<Props, State> = {
-  async GET(_, ctx) {
+  async GET(ctx) {
     const csrfToken = await createCsrfToken();
-    return ctx.render({ ...ctx.state, csrfToken });
+    return page({ ...ctx.state, csrfToken });
   },
 
-  async POST(req, _ctx) {
-    const form = await readPostDataAndValidateCsrfToken(req);
+  async POST(ctx) {
+    const form = await readPostDataAndValidateCsrfToken(ctx.req);
     const email = form.get("email")?.toString();
     const name = form.get("name")?.toString();
     const company = form.get("company")?.toString();

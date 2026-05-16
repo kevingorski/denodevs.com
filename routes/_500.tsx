@@ -1,4 +1,4 @@
-import { PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
 import ContactSupportLink from "@/components/ContactSupportLink.tsx";
 import { SITE_NAME } from "@/utils/constants.ts";
 

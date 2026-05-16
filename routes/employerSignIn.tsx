@@ -1,4 +1,6 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import { State } from "@/routes/_middleware.ts";
 import { redirect, setRedirectUrlCookie } from "@/utils/redirect.ts";
 import { createSignInToken, getEmployerByEmail } from "@/utils/db.ts";
@@ -16,17 +18,17 @@ interface EmployerSignInPageData extends State {
 }
 
 export const handler: Handlers<EmployerSignInPageData, State> = {
-  GET(req, ctx) {
-    const signInHelp = getSignInHelpFromCookie(req);
+  GET(ctx) {
+    const signInHelp = getSignInHelpFromCookie(ctx.req);
     if (ctx.state.employerSessionId !== undefined) return redirect("/");
 
-    return ctx.render({ ...ctx.state, hasSubmitted: false, signInHelp });
+    return page({ ...ctx.state, hasSubmitted: false, signInHelp });
   },
 
-  async POST(req, ctx) {
-    const form = await req.formData();
+  async POST(ctx) {
+    const form = await ctx.req.formData();
     const email = form.get("email")?.toString();
-    const signInHelp = getSignInHelpFromCookie(req);
+    const signInHelp = getSignInHelpFromCookie(ctx.req);
 
     if (!email) {
       return new Response(null, { status: 400 });
@@ -43,16 +45,18 @@ export const handler: Handlers<EmployerSignInPageData, State> = {
       await sendEmployerSignInEmailMessage(employer, signInToken.uuid);
     }
 
-    const response = await ctx.render({
-      ...ctx.state,
-      email,
-      hasSubmitted: true,
-      signInHelp,
-    });
+    // POST handler returns PageResponse; setRedirectUrlCookie was previously
+    // wrapping the rendered Response. With the new page() pattern we can't
+    // easily set a cookie on the response, so include the cookie via the
+    // page response headers.
+    const headers = new Headers();
     if (signInResult) {
-      setRedirectUrlCookie(req, response);
+      setRedirectUrlCookie(ctx.req, new Response(null, { headers }));
     }
-    return response;
+    return page(
+      { ...ctx.state, email, hasSubmitted: true, signInHelp },
+      { headers },
+    );
   },
 };
 

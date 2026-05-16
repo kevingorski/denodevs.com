@@ -1,5 +1,5 @@
 import { State } from "@/routes/_middleware.ts";
-import { FreshContext } from "$fresh/server.ts";
+import type { FreshContext } from "fresh";
 import { basicAuth } from "basic_auth";
 
 export interface AdminState extends State {
@@ -7,7 +7,6 @@ export interface AdminState extends State {
 }
 
 export async function adminAccessHandler(
-  req: Request,
   ctx: FreshContext<AdminState>,
 ) {
   const ADMIN_PASSWORD = Deno.env.get("ADMIN_PASSWORD");
@@ -17,7 +16,7 @@ export async function adminAccessHandler(
     return new Response(null, { status: 500 });
   }
 
-  const unauthorized = basicAuth(req, "Admin access", {
+  const unauthorized = basicAuth(ctx.req, "Admin access", {
     [ADMIN_USERNAME]: ADMIN_PASSWORD,
   });
   if (unauthorized) {

@@ -1,4 +1,6 @@
-import type { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import ContactSupportLink from "@/components/ContactSupportLink.tsx";
 import {
   EMPLOYER_SESSION_COOKIE_NAME,
@@ -8,8 +10,6 @@ import {
 import { signOut } from "kv_oauth";
 import { deleteCookie } from "@std/http/cookie";
 import DeleteAccountButton from "@/islands/DeleteAccountButton.tsx";
-import { useCSP } from "$fresh/src/runtime/csp.ts";
-import denoDevsCsp from "@/utils/csp.ts";
 import { EmployerState } from "@/routes/employer/_middleware.ts";
 import { createCsrfToken, deleteEmployer } from "@/utils/db.ts";
 import {
@@ -21,14 +21,14 @@ import { CSRFInput } from "@/components/CRSFInput.tsx";
 interface Props extends EmployerState, ProtectedForm {}
 
 export const handler: Handlers<Props, EmployerState> = {
-  async GET(_request, ctx) {
+  async GET(ctx) {
     ctx.state.title = "Delete My Account";
     const csrfToken = await createCsrfToken();
-    return ctx.render({ ...ctx.state, csrfToken });
+    return page({ ...ctx.state, csrfToken });
   },
-  async POST(req, ctx) {
-    await readPostDataAndValidateCsrfToken(req);
-    const res = await signOut(req);
+  async POST(ctx) {
+    await readPostDataAndValidateCsrfToken(ctx.req);
+    const res = await signOut(ctx.req);
     await deleteEmployer(ctx.state.employer);
     deleteCookie(res.headers, EMPLOYER_SESSION_COOKIE_NAME, { path: "/" });
     deleteCookie(res.headers, SIGN_IN_HELP_COOKIE_NAME, { path: "/" });
@@ -41,7 +41,6 @@ export default function AccountPage(props: PageProps<Props>) {
   const messageBody =
     `Hello Kevin, I'm considering deleting my ${SITE_NAME} account because [Your Reason Here]...`;
   const messageSubject = `Deleting ${SITE_NAME} account`;
-  useCSP(denoDevsCsp);
   return (
     <main>
       <h1>Delete Account</h1>
@@ -68,7 +67,3 @@ export default function AccountPage(props: PageProps<Props>) {
     </main>
   );
 }
-
-export const config: RouteConfig = {
-  csp: true,
-};
