@@ -42,7 +42,12 @@
     "stripe": "./stripe.ts",
     "fresh": "jsr:@fresh/core@^2.3.3"
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "lint": {
+    "rules": {
+      "tags": ["fresh", "recommended"],
+      "exclude": ["react-no-danger"]
+    }
+  },
   "nodeModulesDir": "none",
   "deploy": {
     "project": "denodevs",

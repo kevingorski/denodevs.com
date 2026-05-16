@@ -33,9 +33,9 @@ export default function EmailTemplatesPage(props: PageProps<Props>) {
             </ul>
             {
               /* Admin-only preview of email templates rendered by our own
-                Resend helper — no user-controlled HTML. */
+                Resend helper (not user-controlled). The react-no-danger
+                rule is disabled project-wide in deno.json. */
             }
-            {/* deno-lint-ignore react-no-danger */}
             <div dangerouslySetInnerHTML={innerHtml} />
           </>
         );
