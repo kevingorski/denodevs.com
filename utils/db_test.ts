@@ -6,11 +6,7 @@ import {
   updateDeveloper,
 } from "./db.ts";
 import { type Developer } from "@/types/Developer.ts";
-import {
-  assertArrayIncludes,
-  assertEquals,
-  assertRejects,
-} from "std/assert/mod.ts";
+import { assertArrayIncludes, assertEquals, assertRejects } from "@std/assert";
 
 function genNewDeveloper(): Developer {
   return {

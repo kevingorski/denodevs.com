@@ -5,7 +5,7 @@ import {
   assertEquals,
   assertFalse,
   assertInstanceOf,
-} from "std/assert/mod.ts";
+} from "@std/assert";
 
 Deno.test("[http]", async (test) => {
   const handler = await createHandler(manifest);

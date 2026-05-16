@@ -1,7 +1,7 @@
 import { addOAuthProviderToResponse } from "@/utils/signInHelp.ts";
 import { OAuthProvider } from "@/types/OAuthProvider.ts";
 import { getDeveloperOrNullFromSessionId } from "@/utils/getDeveloperFromSessionId.ts";
-import { handleCallback, OAuth2ClientConfig } from "kv_oauth/mod.ts";
+import { handleCallback, OAuth2ClientConfig } from "kv_oauth";
 import { defineRoute } from "$fresh/server.ts";
 import { State } from "@/routes/_middleware.ts";
 import { redirectToDeveloperSignIn } from "@/utils/redirect.ts";

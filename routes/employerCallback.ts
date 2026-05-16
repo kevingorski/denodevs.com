@@ -13,7 +13,7 @@ import {
   getSignInToken,
   updateEmployer,
 } from "@/utils/db.ts";
-import { setCookie } from "std/http/cookie.ts";
+import { setCookie } from "@std/http/cookie";
 import {
   EMPLOYER_SESSION_COOKIE_NAME,
   SESSION_COOKIE_LIFETIME_MS,

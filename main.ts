@@ -7,6 +7,5 @@
 
 import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
-import { kvInsightsPlugin } from "kv_insights";
 
-await start(manifest, { plugins: [kvInsightsPlugin()] });
+await start(manifest);

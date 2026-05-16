@@ -1,7 +1,7 @@
 import { Developer } from "@/types/Developer.ts";
 import { SITE_NAME } from "@/utils/constants.ts";
 import { useSignal } from "@preact/signals";
-import { STATUS_CODE } from "std/http/status.ts";
+import { STATUS_CODE } from "@std/http/status";
 import { TargetedEvent } from "preact/compat/src/index.js";
 
 type Props = {

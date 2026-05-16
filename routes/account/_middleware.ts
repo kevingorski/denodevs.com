@@ -5,7 +5,7 @@ import { redirectToDeveloperSignIn } from "@/utils/redirect.ts";
 import getDeveloperFromSessionId, {
   DeveloperSessionResult,
 } from "@/utils/getDeveloperFromSessionId.ts";
-import { signOut } from "kv_oauth/mod.ts";
+import { signOut } from "kv_oauth";
 
 export interface AccountState extends State {
   sessionId: string;

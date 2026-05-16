@@ -1,5 +1,5 @@
-import { RedirectStatus, STATUS_CODE } from "std/http/status.ts";
-import { deleteCookie, getCookies, setCookie } from "std/http/cookie.ts";
+import { RedirectStatus, STATUS_CODE } from "@std/http/status";
+import { deleteCookie, getCookies, setCookie } from "@std/http/cookie";
 
 export const REDIRECT_URL_COOKIE_NAME = "redirect-url";
 

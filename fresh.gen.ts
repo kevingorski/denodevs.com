@@ -26,7 +26,6 @@ import * as $gitHubCallback from "./routes/gitHubCallback.ts";
 import * as $googleCallback from "./routes/googleCallback.ts";
 import * as $hiring from "./routes/hiring.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $kv_insights_middleware from "./routes/kv-insights/_middleware.ts";
 import * as $privacyPolicy from "./routes/privacyPolicy.tsx";
 import * as $signInOAuth from "./routes/signInOAuth.ts";
 import * as $signin from "./routes/signin.tsx";
@@ -42,9 +41,6 @@ import * as $DeleteAccountButton from "./islands/DeleteAccountButton.tsx";
 import * as $DeveloperAccountTabs from "./islands/DeveloperAccountTabs.tsx";
 import * as $DeveloperEmailDetails from "./islands/DeveloperEmailDetails.tsx";
 import * as $DeveloperProfileDetails from "./islands/DeveloperProfileDetails.tsx";
-import * as $EntriesManagement from "./islands/EntriesManagement.tsx";
-import * as $EntryManagement from "./islands/EntryManagement.tsx";
-import * as $QueueManagement from "./islands/QueueManagement.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -73,7 +69,6 @@ const manifest = {
     "./routes/googleCallback.ts": $googleCallback,
     "./routes/hiring.tsx": $hiring,
     "./routes/index.tsx": $index,
-    "./routes/kv-insights/_middleware.ts": $kv_insights_middleware,
     "./routes/privacyPolicy.tsx": $privacyPolicy,
     "./routes/signInOAuth.ts": $signInOAuth,
     "./routes/signin.tsx": $signin,
@@ -91,9 +86,6 @@ const manifest = {
     "./islands/DeveloperAccountTabs.tsx": $DeveloperAccountTabs,
     "./islands/DeveloperEmailDetails.tsx": $DeveloperEmailDetails,
     "./islands/DeveloperProfileDetails.tsx": $DeveloperProfileDetails,
-    "./islands/EntriesManagement.tsx": $EntriesManagement,
-    "./islands/EntryManagement.tsx": $EntryManagement,
-    "./islands/QueueManagement.tsx": $QueueManagement,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

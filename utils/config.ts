@@ -1,4 +1,4 @@
-import { assertExists } from "std/assert/assert_exists.ts";
+import { assertExists } from "@std/assert";
 
 const clickySiteId = Deno.env.get("CLICKY_SITE_ID");
 const siteBaseUrl = Deno.env.get("SITE_BASE_URL");

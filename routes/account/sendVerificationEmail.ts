@@ -5,7 +5,7 @@ import {
   hasEmail,
   sendDeveloperEmailVerificationMessage,
 } from "@/utils/email.ts";
-import { STATUS_CODE } from "std/http/status.ts";
+import { STATUS_CODE } from "@std/http/status";
 
 export const handler: Handlers<PageProps<undefined>, AccountState> = {
   async POST(_req, ctx) {

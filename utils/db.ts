@@ -1,5 +1,5 @@
-import { chunk } from "std/collections/chunk.ts";
-import { ulid } from "std/ulid/mod.ts";
+import { chunk } from "@std/collections/chunk";
+import { ulid } from "@std/ulid";
 import { Developer } from "@/types/Developer.ts";
 import { ExpiringUUID } from "@/types/ExpiringUUID.ts";
 import {

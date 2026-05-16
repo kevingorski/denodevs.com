@@ -4,7 +4,7 @@ import ContactSupportLink from "@/components/ContactSupportLink.tsx";
 import { SIGN_IN_HELP_COOKIE_NAME, SITE_NAME } from "@/utils/constants.ts";
 import { createCsrfToken, deleteDeveloper } from "@/utils/db.ts";
 import { signOut } from "kv_oauth";
-import { deleteCookie } from "std/http/cookie.ts";
+import { deleteCookie } from "@std/http/cookie";
 import DeleteAccountButton from "@/islands/DeleteAccountButton.tsx";
 import { useCSP } from "$fresh/src/runtime/csp.ts";
 import denoDevsCsp from "@/utils/csp.ts";

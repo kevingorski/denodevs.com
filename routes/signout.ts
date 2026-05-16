@@ -5,7 +5,7 @@ import { deleteEmployerSession } from "@/utils/db.ts";
 import { signOut } from "kv_oauth";
 import { redirect } from "@/utils/redirect.ts";
 import { EMPLOYER_SESSION_COOKIE_NAME } from "@/utils/constants.ts";
-import { deleteCookie } from "std/http/cookie.ts";
+import { deleteCookie } from "@std/http/cookie";
 
 async function handleEmployerSignout(employerSessionId?: string) {
   const response = redirect("/");

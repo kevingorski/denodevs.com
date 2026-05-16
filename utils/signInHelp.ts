@@ -1,4 +1,4 @@
-import { getCookies, setCookie } from "std/http/cookie.ts";
+import { getCookies, setCookie } from "@std/http/cookie";
 import {
   SIGN_IN_HELP_COOKIE_LIFETIME_MS,
   SIGN_IN_HELP_COOKIE_NAME,

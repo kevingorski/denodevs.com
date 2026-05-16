@@ -1,7 +1,7 @@
 #!/usr/bin/env -S deno run -A --watch=routes/,utils/,styles/
 
 import dev from "$fresh/dev.ts";
-import "std/dotenv/load.ts";
+import "@std/dotenv/load";
 import { browserslistToTargets, bundle } from "lightningcss";
 import browserslist from "browserslist";
 

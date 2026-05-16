@@ -2,7 +2,7 @@ import { FreshContext } from "$fresh/server.ts";
 import { getSessionId } from "kv_oauth";
 import type { MetaProps } from "@/components/Meta.tsx";
 import { EMPLOYER_SESSION_COOKIE_NAME } from "@/utils/constants.ts";
-import { getCookies } from "std/http/cookie.ts";
+import { getCookies } from "@std/http/cookie";
 
 export interface State extends MetaProps {
   employerSessionId?: string;
