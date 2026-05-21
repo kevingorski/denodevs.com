@@ -34,7 +34,6 @@
     "lightningcss": "npm:lightningcss@^1.29.1",
     "marked": "npm:marked@^15.0.6",
     "preact": "npm:preact@^10.29.1",
-    "preact/": "https://esm.sh/preact@10.22.0/",
     "@preact/signals": "npm:@preact/signals@^2.9.0",
     "react": "https://esm.sh/preact@10.19.2/compat",
     "react-dom": "https://esm.sh/preact@10.19.2/compat",
