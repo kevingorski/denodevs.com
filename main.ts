@@ -10,14 +10,12 @@ app.use(staticFiles());
 // frame-ancestors 'none', base-uri 'self', upgrade-insecure-requests, etc.);
 // `useNonce: true` swaps the 'unsafe-inline' allowance for per-request
 // nonces that Fresh injects into the inline scripts/styles it emits.
-//
-// We only need to extend `img-src` to permit the two avatar hosts used by
-// developer profiles: GitHub OAuth avatars and Gravatar.
 app.use(
   csp({
     useNonce: true,
     csp: [
-      "img-src 'self' data: avatars.githubusercontent.com www.gravatar.com",
+      "img-src 'self' data: avatars.githubusercontent.com www.gravatar.com fresh.deno.dev",
+      "frame-src https://github.com/sponsors/kevingorski/button",
     ],
   }),
 );
