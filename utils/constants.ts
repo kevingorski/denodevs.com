@@ -1,4 +1,4 @@
-import { DAY, MINUTE } from "std/datetime/constants.ts";
+import { DAY, MINUTE } from "@std/datetime/constants";
 
 export const SITE_NAME = "Deno Devs";
 export const SITE_DESCRIPTION =

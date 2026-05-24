@@ -7,7 +7,7 @@ import {
 } from "@/utils/db.ts";
 import { redirectToEmployerSignIn } from "@/utils/redirect.ts";
 import { SESSION_COOKIE_LIFETIME_MS } from "@/utils/constants.ts";
-import { FreshContext } from "$fresh/server.ts";
+import type { FreshContext } from "fresh";
 
 export interface EmployerState extends State {
   employerSessionId: string;
@@ -15,10 +15,9 @@ export interface EmployerState extends State {
 }
 
 export async function handler(
-  req: Request,
   ctx: FreshContext<EmployerState>,
 ) {
-  const redirectResponse = redirectToEmployerSignIn(req.url);
+  const redirectResponse = redirectToEmployerSignIn(ctx.req.url);
   const { employerSessionId } = ctx.state;
   if (!employerSessionId) {
     console.error(`no employerSessionId found`);

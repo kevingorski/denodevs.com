@@ -1,0 +1,204 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@deno/kv-oauth@0.11": "0.11.0",
+    "jsr:@fresh/build-id@1": "1.0.1",
+    "jsr:@fresh/core@^2.3.3": "2.3.3",
+    "jsr:@std/assert@0.221": "0.221.0",
+    "jsr:@std/assert@1": "1.0.19",
+    "jsr:@std/async@0.221": "0.221.0",
+    "jsr:@std/cli@0.221": "0.221.0",
+    "jsr:@std/collections@^1.1.0": "1.1.7",
+    "jsr:@std/datetime@0.221": "0.221.0",
+    "jsr:@std/datetime@0.225": "0.225.2",
+    "jsr:@std/encoding@0.221": "0.221.0",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
+    "jsr:@std/fmt@0.221": "0.221.0",
+    "jsr:@std/fmt@^1.0.8": "1.0.10",
+    "jsr:@std/fs@^1.0.19": "1.0.23",
+    "jsr:@std/html@^1.0.5": "1.0.6",
+    "jsr:@std/http@0.221": "0.221.0",
+    "jsr:@std/http@^1.0.21": "1.1.0",
+    "jsr:@std/http@^1.1.0": "1.1.0",
+    "jsr:@std/internal@^1.0.12": "1.0.13",
+    "jsr:@std/media-types@0.221": "0.221.0",
+    "jsr:@std/net@^1.0.6": "1.0.6",
+    "jsr:@std/path@0.221": "0.221.0",
+    "jsr:@std/path@^1.1.2": "1.1.4",
+    "jsr:@std/path@^1.1.4": "1.1.4",
+    "jsr:@std/streams@0.221": "0.221.0",
+    "jsr:@std/ulid@1": "1.0.0",
+    "npm:@opentelemetry/api@^1.9.0": "1.9.1",
+    "npm:@preact/signals@^2.5.1": "2.9.0_preact@10.29.1",
+    "npm:preact-render-to-string@^6.6.3": "6.6.7_preact@10.29.1",
+    "npm:preact@^10.29.1": "10.29.1"
+  },
+  "jsr": {
+    "@deno/kv-oauth@0.11.0": {
+      "integrity": "17a8822fde1573563b8bdb526d925e398a4b92394381273bad1e837fb4a6c8b2",
+      "dependencies": [
+        "jsr:@std/datetime@0.221",
+        "jsr:@std/http@0.221"
+      ]
+    },
+    "@fresh/build-id@1.0.1": {
+      "integrity": "12a2ec25fd52ae9ec68c26848a5696cd1c9b537f7c983c7e56e4fb1e7e816c20",
+      "dependencies": [
+        "jsr:@std/encoding@^1.0.10"
+      ]
+    },
+    "@fresh/core@2.3.3": {
+      "integrity": "6c2aad199976644352c89a1d601f3ef331b1d24cdadb53ed469324a303598383",
+      "dependencies": [
+        "jsr:@fresh/build-id",
+        "jsr:@std/fmt@^1.0.8",
+        "jsr:@std/fs",
+        "jsr:@std/html",
+        "jsr:@std/http@^1.0.21",
+        "jsr:@std/net",
+        "jsr:@std/path@^1.1.2",
+        "npm:@opentelemetry/api",
+        "npm:@preact/signals",
+        "npm:preact",
+        "npm:preact-render-to-string"
+      ]
+    },
+    "@std/assert@0.221.0": {
+      "integrity": "a5f1aa6e7909dbea271754fd4ab3f4e687aeff4873b4cef9a320af813adb489a"
+    },
+    "@std/assert@1.0.19": {
+      "integrity": "eaada96ee120cb980bc47e040f82814d786fe8162ecc53c91d8df60b8755991e",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/async@0.221.0": {
+      "integrity": "f5519861754a1bb2898d227dd8ccb545abc975534aa9063e53911d6cb4e365cf"
+    },
+    "@std/cli@0.221.0": {
+      "integrity": "157c2f881f0f85a73d994e7668754aeeccdf597680bd9c65de9c6bcd670416ac",
+      "dependencies": [
+        "jsr:@std/assert@0.221"
+      ]
+    },
+    "@std/collections@1.1.7": {
+      "integrity": "56f659d011218a69740b12829cf5ea2c9b70bbed0af02597e27dc1eb5e69e208"
+    },
+    "@std/datetime@0.221.0": {
+      "integrity": "41188de53bd811a0f04955b1cec0ce65f9b8fec293529818c829a55dfcce5031"
+    },
+    "@std/datetime@0.225.2": {
+      "integrity": "45f0100554a912cd65f48089ef0a33aa1eb6ea21f08090840b539ab582827eaa"
+    },
+    "@std/encoding@0.221.0": {
+      "integrity": "d1dd76ef0dc5d14088411e6dc1dede53bf8308c95d1537df1214c97137208e45"
+    },
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
+    },
+    "@std/fmt@0.221.0": {
+      "integrity": "379fed69bdd9731110f26b9085aeb740606b20428ce6af31ef6bd45ef8efa62a"
+    },
+    "@std/fmt@1.0.10": {
+      "integrity": "90dfba288802ac6de82fb31d0917eb9e4450b9925b954d5e51fc29ac07419db5"
+    },
+    "@std/fs@1.0.23": {
+      "integrity": "3ecbae4ce4fee03b180fa710caff36bb5adb66631c46a6460aaad49515565a37",
+      "dependencies": [
+        "jsr:@std/path@^1.1.4"
+      ]
+    },
+    "@std/html@1.0.6": {
+      "integrity": "eaf759c8141e0733ca30eb49e4c08d8e6ca442b85c4d51f9894a56f502993e08"
+    },
+    "@std/http@0.221.0": {
+      "integrity": "35fdcfed1501f2052338bf7ffba5d66f1455f2fffc01e9d7cf13eed548fffbaa",
+      "dependencies": [
+        "jsr:@std/assert@0.221",
+        "jsr:@std/async",
+        "jsr:@std/cli",
+        "jsr:@std/encoding@0.221",
+        "jsr:@std/fmt@0.221",
+        "jsr:@std/media-types",
+        "jsr:@std/path@0.221",
+        "jsr:@std/streams"
+      ]
+    },
+    "@std/http@1.1.0": {
+      "integrity": "265cd9a589fea924c5bb0bbed8bebb4bb2fa19129f760bd014e78dbd7a365a51"
+    },
+    "@std/internal@1.0.13": {
+      "integrity": "2f9546691d4ac2d32859c82dff284aaeac980ddeca38430d07941e7e288725c0"
+    },
+    "@std/media-types@0.221.0": {
+      "integrity": "572addcbda2a21367c1f8eaa8c72fea6654b50779027dbde9f693aaa4bac30c3"
+    },
+    "@std/net@1.0.6": {
+      "integrity": "110735f93e95bb9feb95790a8b1d1bf69ec0dc74f3f97a00a76ea5efea25500c"
+    },
+    "@std/path@0.221.0": {
+      "integrity": "0a36f6b17314ef653a3a1649740cc8db51b25a133ecfe838f20b79a56ebe0095",
+      "dependencies": [
+        "jsr:@std/assert@0.221"
+      ]
+    },
+    "@std/path@1.1.4": {
+      "integrity": "1d2d43f39efb1b42f0b1882a25486647cb851481862dc7313390b2bb044314b5",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/streams@0.221.0": {
+      "integrity": "47f2f74634b47449277c0ee79fe878da4424b66bd8975c032e3afdca88986e61",
+      "dependencies": [
+        "jsr:@std/assert@0.221"
+      ]
+    },
+    "@std/ulid@1.0.0": {
+      "integrity": "d41c3d27a907714413649fee864b7cde8d42ee68437d22b79d5de4f81d808780"
+    }
+  },
+  "npm": {
+    "@opentelemetry/api@1.9.1": {
+      "integrity": "sha512-gLyJlPHPZYdAk1JENA9LeHejZe1Ti77/pTeFm/nMXmQH/HFZlcS/O2XJB+L8fkbrNSqhdtlvjBVjxwUYanNH5Q=="
+    },
+    "@preact/signals-core@1.14.2": {
+      "integrity": "sha512-RZHdBj9ZF4n40Rp4jS052EHHjBWf96P9oNdXPfhQTovCuWY9iQn3Gq+gOTJSgBO9A/JBuPfMOWsSX/lIU9Pc/A=="
+    },
+    "@preact/signals@2.9.0_preact@10.29.1": {
+      "integrity": "sha512-hYrY0KyUqkDgOl1qba/JGn6y81pXnurn21PMaxfcMwdncdZ3M/oVdmpTvEnsGjh48dIwDVc7bjWHqIsngSjYug==",
+      "dependencies": [
+        "@preact/signals-core",
+        "preact"
+      ]
+    },
+    "preact-render-to-string@6.6.7_preact@10.29.1": {
+      "integrity": "sha512-3XdbsX3+vn9dQW+jJI/FsI9rlkgl6dbeUpqLsChak6jp3j3auFqBCkno7VChbMFs5Q8ylBj6DrUkKRwtVN3nvw==",
+      "dependencies": [
+        "preact"
+      ]
+    },
+    "preact@10.29.1": {
+      "integrity": "sha512-gQCLc/vWroE8lIpleXtdJhTFDogTdZG9AjMUpVkDf2iTCNwYNWA+u16dL41TqUDJO4gm2IgrcMv3uTpjd4Pwmg=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@deno/kv-oauth@0.11",
+      "jsr:@fresh/core@^2.3.3",
+      "jsr:@std/assert@1",
+      "jsr:@std/collections@^1.1.0",
+      "jsr:@std/datetime@0.225",
+      "jsr:@std/dotenv@0.225",
+      "jsr:@std/http@^1.1.0",
+      "jsr:@std/ulid@1",
+      "npm:@preact/signals@^2.9.0",
+      "npm:browserslist@^4.24.4",
+      "npm:fast-blurhash@^1.1.4",
+      "npm:gravatar@^1.8.2",
+      "npm:lightningcss@^1.29.1",
+      "npm:marked@^15.0.6",
+      "npm:preact@^10.29.1"
+    ]
+  }
+}

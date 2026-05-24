@@ -1,7 +1,7 @@
 import { Developer } from "@/types/Developer.ts";
 import { SITE_NAME } from "@/utils/constants.ts";
 import { useSignal } from "@preact/signals";
-import { STATUS_CODE } from "std/http/status.ts";
+import { STATUS_CODE } from "@std/http/status";
 import { TargetedEvent } from "preact/compat/src/index.js";
 
 type Props = {
@@ -101,7 +101,7 @@ export default function DeveloperEmailDetails(
                 ? <span title="Verified">✅</span>
                 : <span title="Check your email to verify">📬</span>}
             </label>
-            <button onClick={handleEditClick}>
+            <button type="button" onClick={handleEditClick}>
               Edit
             </button>
           </div>

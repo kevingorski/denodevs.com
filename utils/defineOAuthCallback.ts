@@ -1,8 +1,8 @@
 import { addOAuthProviderToResponse } from "@/utils/signInHelp.ts";
 import { OAuthProvider } from "@/types/OAuthProvider.ts";
 import { getDeveloperOrNullFromSessionId } from "@/utils/getDeveloperFromSessionId.ts";
-import { handleCallback, OAuth2ClientConfig } from "kv_oauth/mod.ts";
-import { defineRoute } from "$fresh/server.ts";
+import { handleCallback, OAuth2ClientConfig } from "kv_oauth";
+import { defineRoute } from "fresh/compat";
 import { State } from "@/routes/_middleware.ts";
 import { redirectToDeveloperSignIn } from "@/utils/redirect.ts";
 import {
@@ -37,7 +37,8 @@ export default function defineOAuthCallbackRoute<
     getUserData,
     provider,
   } = options;
-  return defineRoute<State>(async (req, ctx) => {
+  return defineRoute<State>(async (ctx) => {
+    const { req } = ctx;
     const developer = await getDeveloperOrNullFromSessionId(
       ctx.state.sessionId,
     );

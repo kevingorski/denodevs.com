@@ -1,4 +1,4 @@
-import { defineRoute } from "$fresh/server.ts";
+import { defineRoute } from "fresh/compat";
 import { marked } from "marked";
 import { SITE_NAME } from "@/utils/constants.ts";
 
@@ -20,6 +20,10 @@ export default defineRoute(() => {
           })}
         </time>
       </p>
+      {
+        /* Renders a repo-local markdown file (not user input). The
+          react-no-danger rule is disabled project-wide in deno.json. */
+      }
       <div
         dangerouslySetInnerHTML={{ __html: markup }}
       />

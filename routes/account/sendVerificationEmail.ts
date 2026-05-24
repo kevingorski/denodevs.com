@@ -1,16 +1,16 @@
-import type { Handlers, PageProps } from "$fresh/server.ts";
+import type { Handlers } from "fresh/compat";
 import type { AccountState } from "@/routes/account/_middleware.ts";
 import { createSignInToken, updateDeveloper } from "@/utils/db.ts";
 import {
   hasEmail,
   sendDeveloperEmailVerificationMessage,
 } from "@/utils/email.ts";
-import { STATUS_CODE } from "std/http/status.ts";
+import { STATUS_CODE } from "@std/http/status";
 
-export const handler: Handlers<PageProps<undefined>, AccountState> = {
-  async POST(_req, ctx) {
+export const handler: Handlers<undefined, AccountState> = {
+  async POST(ctx) {
     const { developer } = ctx.state;
-    const email = (await _req.json())?.email;
+    const email = (await ctx.req.json())?.email;
     if (typeof email !== "string" || email.length === 0) {
       return new Response(null, { status: STATUS_CODE.BadRequest });
     }

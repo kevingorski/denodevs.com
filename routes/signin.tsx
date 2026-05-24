@@ -1,4 +1,6 @@
-import type { Handlers, PageProps } from "$fresh/server.ts";
+import type { PageProps } from "fresh";
+import { page } from "fresh";
+import type { Handlers } from "fresh/compat";
 import type { State } from "./_middleware.ts";
 import { redirect } from "@/utils/redirect.ts";
 import SignInFormSupportLink from "@/components/SignInFormSupportLink.tsx";
@@ -21,13 +23,13 @@ export const handler: Handlers<DeveloperSignInPageData, State> = {
    * Redirects the client to the authenticated redirect path if already signed in.
    * If not signed in, it continues to rendering the sign in page.
    */
-  GET(req, ctx) {
-    const from = new URL(req.url).searchParams.get("from");
-    const signInHelp = getSignInHelpFromCookie(req);
+  GET(ctx) {
+    const from = new URL(ctx.req.url).searchParams.get("from");
+    const signInHelp = getSignInHelpFromCookie(ctx.req);
 
     if (ctx.state.sessionId !== undefined) return redirect("/account");
 
-    return ctx.render({ ...ctx.state, from, signInHelp });
+    return page({ ...ctx.state, from, signInHelp });
   },
 };
 

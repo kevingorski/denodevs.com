@@ -105,7 +105,7 @@ export default function DeveloperProfileDetails(
               maxLength={250}
               name="fullName"
               onInput={handleInputFullName}
-              placeholder={"Your full name"}
+              placeholder="Your full name"
               required
               type="text"
               value={fullName}
@@ -134,7 +134,7 @@ export default function DeveloperProfileDetails(
               maxLength={250}
               name="location"
               onInput={handleInputLocation}
-              placeholder={"Your location"}
+              placeholder="Your location"
               type="text"
               value={location}
             />
@@ -148,7 +148,7 @@ export default function DeveloperProfileDetails(
               maxLength={2000}
               name="bio"
               onInput={handleInputBio}
-              placeholder={"Your bio"}
+              placeholder="Your bio"
               value={bio}
             />
           )
@@ -223,6 +223,7 @@ export default function DeveloperProfileDetails(
       </Row>
       {!isEditing.value && (
         <button
+          type="button"
           onClick={handleEditClick}
         >
           Edit
@@ -237,6 +238,7 @@ export default function DeveloperProfileDetails(
             Save
           </button>
           <button
+            type="button"
             onClick={handleCancelClick}
           >
             Cancel

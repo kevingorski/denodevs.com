@@ -1,12 +1,13 @@
-import type { Handlers } from "$fresh/server.ts";
+import type { Handlers } from "fresh/compat";
+import { page } from "fresh";
 import { State } from "@/routes/_middleware.ts";
 import { UserType } from "@/types/UserType.ts";
 import SignUpSupportLink from "@/components/SignUpSupportLink.tsx";
 import { SITE_NAME } from "@/utils/constants.ts";
 
 export const handler: Handlers<State, State> = {
-  GET(_, ctx) {
-    return ctx.render(ctx.state);
+  GET(ctx) {
+    return page(ctx.state);
   },
 };
 

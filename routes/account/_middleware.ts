@@ -1,11 +1,11 @@
 import { State } from "@/routes/_middleware.ts";
-import { FreshContext } from "$fresh/server.ts";
+import type { FreshContext } from "fresh";
 import { Developer } from "@/types/Developer.ts";
 import { redirectToDeveloperSignIn } from "@/utils/redirect.ts";
 import getDeveloperFromSessionId, {
   DeveloperSessionResult,
 } from "@/utils/getDeveloperFromSessionId.ts";
-import { signOut } from "kv_oauth/mod.ts";
+import { signOut } from "kv_oauth";
 
 export interface AccountState extends State {
   sessionId: string;
@@ -13,10 +13,9 @@ export interface AccountState extends State {
 }
 
 export async function handler(
-  req: Request,
   ctx: FreshContext<AccountState>,
 ) {
-  const redirectResponse = redirectToDeveloperSignIn(req.url);
+  const redirectResponse = redirectToDeveloperSignIn(ctx.req.url);
   const { sessionId } = ctx.state;
   const maybeDeveloper = await getDeveloperFromSessionId(sessionId);
 
@@ -26,7 +25,7 @@ export async function handler(
       return redirectResponse;
     case DeveloperSessionResult.NO_DEVELOPER:
       console.error("No developer");
-      return await signOut(req);
+      return await signOut(ctx.req);
     default:
       ctx.state.developer = maybeDeveloper;
       break;

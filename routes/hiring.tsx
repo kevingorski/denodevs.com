@@ -1,10 +1,11 @@
-import type { Handlers } from "$fresh/server.ts";
+import type { Handlers } from "fresh/compat";
+import { page } from "fresh";
 import type { State } from "@/routes/_middleware.ts";
 import { SITE_NAME, SITE_VERSION } from "@/utils/constants.ts";
 
 export const handler: Handlers<State, State> = {
-  GET(_, ctx) {
-    return ctx.render(ctx.state);
+  GET(ctx) {
+    return page(ctx.state);
   },
 };
 
