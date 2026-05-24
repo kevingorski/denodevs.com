@@ -26,7 +26,6 @@ export default function Footer(
           messageSubject={`Send ${SITE_NAME} Feedback`}
           titleText={`Send ${SITE_NAME} Feedback`}
         />
-        <a href="https://techhub.social/@denodevs" rel="me">Mastodon</a>
         <a
           href="https://github.com/kevingorski/denodevs.com"
           target="_blank"
